@@ -24,15 +24,23 @@
     <title th:text="${title}"></title>
 </head>
 <body>
-<header style="padding: 1rem">
-    <h1 style="padding-bottom: 1rem" th:text="${message}">메세지</h1>
+<header style="padding: 1rem;">
+    <h1 style="padding-bottom: 1rem" th:text="${message}">메시지</h1>
     <nav>
         <a th:href="@{/}">홈</a>
         <a th:href="@{/article/new}">글 작성</a>
     </nav>
 </header>
-<section style="margin: auto; padding: 1rem; max-width: 768px">
-    <article th:text="${list}">리스트</article>
+<section style="margin: auto; padding: 1rem; max-width: 768px;">
+    <article th:each="el : ${list}">
+        <section th:if="${el.filename}">
+            <img style="width: 4rem;" th:src="${el.filename}" alt="사진">
+        </section>
+        <section>
+            <h3 th:text="${el.title}"></h3>
+            <p th:text="${el.content}"></p>
+        </section>
+    </article>
 </section>
 </body>
 </html>

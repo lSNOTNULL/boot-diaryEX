@@ -19,4 +19,9 @@ public class ArticleServiceImpl implements ArticleService {
         return articleRepository.findAll();
         //Jpa 를 이용해 Article Entity의 모든 내용을 찾는 메서드 구현
     }
+
+    @Override
+    public void save(Article article) {
+        articleRepository.save(article);
+    }
 }
