@@ -1,0 +1,22 @@
+server:
+  port: 8080 # 충돌 문제 시 수정
+spring:
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        show_sql: true
+        format_sql: true
+    hibernate:
+      ddl-auto: none # 배포 시는 none 또는 validate 추천
+  datasource:
+    driver-class-name: org.postgresql.Driver # postgresql
+    url: ${POSTGRESQL_URL}
+    username: ${POSTGRESQL_USERNAME}
+    password: ${POSTGRESQL_PASSWORD}
+
+# 객체 스토리지
+supabase:
+  url: ${SUPABASE_URL}
+  bucket-name: ${SUPABASE_BUCKET_NAME}
+  access-key: ${SUPABASE_ACCESS_KEY}
